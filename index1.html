@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Asynchronous Programming
+    </title>
+    <script>
+        async function loadUserDetails(username) {
+            try {
+                const url = `https://api.github.com/users/${username}`;
+                const res = await fetch(url);
+                const data = await res.json(); 
+                  // await the JSON()
+                  document.getElementById("#para1").src=data.avatar_url;
+                  document.getElementById("#para1").style.color="red";
+                console.log("response:", data);
+            } catch (err) {
+                console.log("ERROR:", err);
+            }
+        }
+        loadUserDetails("vaishnavitiwari05");
+    </script>
+</head>
+<body>
+    <h1>github Page info</h1>
+    <img id="#para1" src="" alt="User Avatar"></img>
+</body>
+</html>
